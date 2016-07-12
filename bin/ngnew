@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+'use strict';
+
+// Provide a title to the process in `ps`
+process.title = 'angular-cli';
+
+require('ts-node').register({project: '../'});
+
+// require('../index-commander');
+require('../index');
