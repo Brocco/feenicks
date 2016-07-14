@@ -23,7 +23,7 @@ export class NewCommand implements CommandHandler {
   name: string;
   
   validate() {
-    console.log('validating');
+    console.log('validating...');
     return true;
   }
   run() {

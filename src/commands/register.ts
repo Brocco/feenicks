@@ -48,7 +48,8 @@ export function register(vorpal, command: CommandMetadata, ctor: any){
   
   cmd.action((args) => {
     //get instance via ctor
-    console.log('raw args...', args);
+    console.log('vorpal raw args...');
+    console.log(JSON.stringify(args, null, 2));
     let instance = new ctor();
     _.extend(instance, args);
     return instance.run(args);
