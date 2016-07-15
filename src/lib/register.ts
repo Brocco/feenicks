@@ -42,9 +42,9 @@ export function register(vorpal, injector, command: CommandMetadata, ctor: any){
     // console.log('vorpal raw args...');
     // console.log(JSON.stringify(args, null, 2));
     // let instance = new ctor();
-    // _.extend(instance, args);
-    // return instance.run(args);
-    return true;
+    let instance = injector.get(ctor);
+    _.extend(instance, args);
+    return instance.run(args);
   });
 }
 

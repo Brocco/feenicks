@@ -1,8 +1,11 @@
 #!/usr/bin/env node
+
+/// <reference path="../node_modules/@types/node/index.d.ts" />
+
 'use strict';
 
 require('reflect-metadata');
-var vorpal = require('vorpal')();
+const vorpal = require('vorpal')();
 
 import { Injector, ReflectiveInjector, provide } from '@angular/core';
 

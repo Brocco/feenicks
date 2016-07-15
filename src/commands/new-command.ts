@@ -1,5 +1,5 @@
 import { Inject } from '@angular/core';
-import { Command, CommandHandler, Argument, Option } from './command';
+import { Command, CommandHandler, Argument, Option } from '../lib/command';
 import { NewTask } from '../tasks';
 
 @Command({
