@@ -1,12 +1,23 @@
 #!/usr/bin/env node
 'use strict';
 
-// Provide a title to the process in `ps`
-process.title = 'angular-cli'
-
+require('reflect-metadata');
 var vorpal = require('vorpal')();
 
-let NewCommand = require('./commands/new');
-NewCommand.NewCommand.register(vorpal);
+import { Injector, ReflectiveInjector, provide } from '@angular/core';
+
+import commands from './commands';
+import * as tasks from './tasks';
+
+let diItems = [].concat(commands);
+for(let t in tasks){
+  diItems.push(provide(tasks[t], { useClass: tasks[t] }))
+}
+
+let injector = ReflectiveInjector.resolveAndCreate(diItems);
+
+commands.forEach(command => {
+  command.register(vorpal, injector);
+});
 
 vorpal.parse(process.argv);

@@ -1,13 +1,16 @@
+import { Inject } from '@angular/core';
 import { Command, CommandHandler, Argument, Option } from './command';
+import { NewTask } from '../tasks';
 
 @Command({
   name: 'new',
   description: 'Create a new application',
 })
 export class NewCommand implements CommandHandler {
-  constructor() {
-    this.validate.bind(this);
-    this.run.bind(this);
+  private _newTask: NewTask;
+
+  constructor(@Inject(NewTask) newTask) {
+    this._newTask = newTask;
   }
 
   @Option({
@@ -24,8 +27,14 @@ export class NewCommand implements CommandHandler {
   
   validate() {
     console.log('validating...');
+    console.log('******************');
+    console.log('******************');
+    this._newTask.run();
+    console.log('******************');
+    console.log('******************');
     return true;
   }
+  
   run() {
     console.log('running...');
     console.log('name = ', this.name);

@@ -2,7 +2,7 @@
 'use strict';
 
 // Provide a title to the process in `ps`
-process.title = 'angular-cli';
+process.title = 'angular-cli'
 
 // require('../index-commander');
 require('../dist/index');
