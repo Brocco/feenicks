@@ -9,8 +9,8 @@ export * from './command-metadata';
 // Command Decorator
 export function Command (command: CommandMetadata) {
   return (target) => {
-    target.register = (vorpal) => {
-      register(vorpal, command, target);
+    target.register = (vorpal, injector) => {
+      register(vorpal, injector, command, target);
     };
     return target;
   };
