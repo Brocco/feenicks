@@ -2,7 +2,8 @@
 
 'use strict';
 
-require('reflect-metadata');
+import 'reflect-metadata';
+
 const vorpal = require('vorpal')();
 
 import { Injector, ReflectiveInjector, provide } from '@angular/core';

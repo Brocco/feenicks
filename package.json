@@ -4,9 +4,14 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
+    "clean": "rimraf ./dist/",
     "start": "echo Jay Phelps said I should have something here",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rimraf ./dist/ && tsc"
+    "build": "npm-run-all clean tsc",
+    "test": "npm run test:build && node ./scripts/run-spec.js",
+    "test:build": "tsc -p tsconfig-spec.json",
+    "test:build-watch": "tsc -p src/tsconfig-spec.json -w",
+    "test:watch": "./scripts/run-watch.js",
+    "tsc": "tsc"
   },
   "bin": {
     "ng2": "./bin/ng2"
@@ -22,8 +27,11 @@
     "zone.js": "^0.6.12"
   },
   "devDependencies": {
+    "@types/jasmine": "^2.2.29",
     "@types/lodash": "0.0.26-alpha",
     "@types/node": "^4.0.28-alpha",
+    "jasmine": "^2.4.1",
+    "npm-run-all": "^2.3.0",
     "rimraf": "^2.5.2",
     "typescript": "^2.0.0"
   }

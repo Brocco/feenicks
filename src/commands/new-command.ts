@@ -26,18 +26,14 @@ export class NewCommand implements CommandHandler {
   name: string;
   
   validate() {
-    console.log('validating...');
-    console.log('******************');
-    console.log('******************');
+    // console.log('validating...');
     this._newTask.run();
-    console.log('******************');
-    console.log('******************');
     return true;
   }
   
   run() {
-    console.log('running...');
-    console.log('name = ', this.name);
+    // console.log('running...');
+    // console.log('name = ', this.name);
     return true;
   }
 }
